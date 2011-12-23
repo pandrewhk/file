@@ -218,6 +218,31 @@
 0	string		caff		CoreAudio Format audio file
 >4	beshort		<10		version %d
 >6	beshort		x
+>8	string		desc
+>>28	string	lpcm	\b, LPCM
+!:mime	audio/caf-lpcm
+>>28	string	ima4	\b, IMA4
+!:mime	audio/caf-ima4
+>>28	string	aac		\b, AAC
+!:mime	audio/caf-aac
+>>28	string	MAC3	\b, MACE3
+!:mime	audio/caf-mace3
+>>28	string	MAC6	\b, MACE6
+!:mime	audio/caf-mace6
+>>28	string	ulaw	\b, ULaw
+!:mime	audio/caf-ulaw
+>>28	string	alaw	\b, ALaw
+!:mime	audio/caf-alaw
+>>28	string	.mp1	\b, MP1
+!:mime	audio/caf-mp1
+>>28	string	.mp2	\b, MP2
+!:mime	audio/caf-mp2
+>>28	string	.mp3	\b, MP3
+!:mime	audio/caf-mp3
+>>28	string	alac	\b, ALAC
+!:mime	audio/caf-alac
+>>28	default	x
+!:mime	audio/caf
 
 
 #------------------------------------------------------------------------------
