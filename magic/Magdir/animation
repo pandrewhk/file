@@ -713,8 +713,24 @@
 >3	byte			&0x80		(PAL)
 >3	byte			^0x80		(NTSC)
 
-# Microsoft Advanced Streaming Format (ASF) <mpruett@sgi.com>
+# Microsoft Advanced Systems Format (ASF) <mpruett@sgi.com>
 0	belong			0x3026b275	Microsoft ASF
+>0	search/0xffff	\xC9\x03\x48\xF6	\b	# codec list
+>>&24	long		0x1	\b	# single codec
+>>>&0	short		0x1		\b, WMV
+>>>&0	short		0x2		\b, WMA
+>>>>&(&0.s*2)	short	x
+>>>>>&(&0.s*2)	short	x
+>>>>>>&0		short	0x2		# 2-byte codec info
+>>>>>>>&0		short	0x161	\b, WM7/8/9
+!:mime	audio/wma
+>>>>>>>&0		short	0x162	\b, WM9 Pro
+!:mime	audio/wmap
+>>>>>>>&0		short	0x163	\b, WM9 Lossless
+!:mime	audio/wmal
+>>>>>>>&0		short	0x7a21	\b, GSM-AMR FBR, no SID
+>>>>>>>&0		short	0x7a22	\b, GSM-AMR VBR, SID
+>>>&0	short		0xffff	\b, Unknown codec
 !:mime  video/x-ms-asf
 
 # MNG Video Format, <URL:http://www.libpng.org/pub/mng/spec/>
