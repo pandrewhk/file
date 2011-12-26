@@ -61,7 +61,10 @@
 !:mime	video/mp4
 >8	string		avc1		\b, MPEG v4 system, 3GPP JVT AVC
 !:mime	video/3gpp
->8	string/W	M4A		\b, MPEG v4 system, iTunes AAC-LC
+>8	string/W	M4A
+>>8	search/0x200	alac	\b, MPEG v4 system, ALAC
+!:mime	audio/mp4-alac
+>>8	default			x		\b, MPEG v4 system, iTunes AAC-LC
 !:mime	audio/mp4
 >8	string/W	M4V		\b, MPEG v4 system, iTunes AVC-LC
 !:mime	video/mp4
