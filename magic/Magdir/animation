@@ -715,13 +715,16 @@
 
 # Microsoft Advanced Systems Format (ASF) <mpruett@sgi.com>
 0	belong			0x3026b275	Microsoft ASF
->0	search/0xffff	\xC9\x03\x48\xF6	\b	# codec list
->>&24	long		0x1	\b	# single codec
+# look for codec list
+>0	search/0xffff	\xC9\x03\x48\xF6	\b
+# check if single codec
+>>&24	long		0x1	\b
 >>>&0	short		0x1		\b, WMV
 >>>&0	short		0x2		\b, WMA
 >>>>&(&0.s*2)	short	x
 >>>>>&(&0.s*2)	short	x
->>>>>>&0		short	0x2		# 2-byte codec info
+# check that codec info is 2 bytes
+>>>>>>&0		short	0x2
 >>>>>>>&0		short	0x161	\b, WM7/8/9
 !:mime	audio/wma
 >>>>>>>&0		short	0x162	\b, WM9 Pro
